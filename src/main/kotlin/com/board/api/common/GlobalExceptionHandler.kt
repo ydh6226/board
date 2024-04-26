@@ -14,4 +14,10 @@ class GlobalExceptionHandler {
     fun handleBadRequestException(e: BadRequestException): ApiResponse<String> {
         return ApiResponse.fail(e.message)
     }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(RuntimeException::class)
+    fun handleRuntimeException(e: RuntimeException): ApiResponse<String> {
+        return ApiResponse.fail(e.message ?: "Internal Server Error")
+    }
 }

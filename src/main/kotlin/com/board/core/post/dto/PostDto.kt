@@ -5,6 +5,7 @@ import java.time.LocalDateTime
 
 data class PostDto(
     val id: String,
+    val userId: String,
     val title: String,
     val content: String,
     val createdAt: LocalDateTime,
@@ -13,6 +14,7 @@ data class PostDto(
         fun from(post: Post): PostDto {
             return PostDto(
                 id = post.id!!,
+                userId = post.userId,
                 title = post.title,
                 content = post.content,
                 createdAt = post.createdAt!!,

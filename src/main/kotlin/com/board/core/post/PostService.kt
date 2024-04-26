@@ -12,6 +12,11 @@ class PostService(
     private val postRepository: PostRepository,
 ) {
 
+    fun getPostById(id: String): PostDto {
+        val post = postRepository.findByIdOrNull(id) ?: throw IllegalArgumentException("Post not found")
+        return PostDto.from(post)
+    }
+
     fun createPost(
         userId: String,
         title: String,
@@ -22,10 +27,5 @@ class PostService(
         val post = Post(userId, title, content)
         postRepository.save(post)
         return post.id!!
-    }
-
-    fun getPostById(id: String): PostDto {
-        val post = postRepository.findByIdOrNull(id) ?: throw IllegalArgumentException("Post not found")
-        return PostDto.from(post)
     }
 }
