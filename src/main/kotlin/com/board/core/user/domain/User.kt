@@ -5,11 +5,11 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 @Document
 data class User(
-    val name: String,
+    val username: String,
 ) : BaseEntity() {
 
     init {
-        require(name.isNotBlank()) { "name must not be blank" }
+        require(username.isNotBlank()) { "username must not be blank" }
     }
 
 }

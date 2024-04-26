@@ -12,11 +12,15 @@ class UserService(
 
     @Transactional
     fun signup(name: String) {
-        if (userRepository.existsByName(name)) {
+        if (userRepository.existsByUsername(name)) {
             throw BadRequestException("이미 존재하는 사용자입니다.")
         }
 
         val user = User(name)
         userRepository.save(user)
+    }
+
+    fun existsByUserId(userId: String): Boolean {
+        return userRepository.existsById(userId)
     }
 }

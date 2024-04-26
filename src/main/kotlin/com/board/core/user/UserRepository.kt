@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface UserRepository: MongoRepository<User, String> {
-    fun existsByName(name: String): Boolean
+    fun existsByUsername(name: String): Boolean
 }

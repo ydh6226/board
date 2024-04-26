@@ -1,7 +1,7 @@
 package com.board.api
 
 import com.board.api.common.ApiResponse
-import com.board.api.dto.SignupRequest
+import com.board.api.dto.user.SignupApiRequest
 import com.board.core.user.UserService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -15,7 +15,7 @@ class UserController(
 ) {
 
     @PostMapping("/signup")
-    fun signup(@RequestBody request: SignupRequest): ApiResponse<Boolean> {
+    fun signup(@RequestBody request: SignupApiRequest): ApiResponse<Boolean> {
         userService.signup(request.name)
         return ApiResponse.success(true)
     }
