@@ -10,8 +10,8 @@ class ApiResponse<T>(
             return ApiResponse(true, data)
         }
 
-        fun <T> fail(data: T): ApiResponse<T> {
-            return ApiResponse(false, data)
+        fun fail(message: String): ApiResponse<String> {
+            return ApiResponse(false, message)
         }
     }
 }
