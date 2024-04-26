@@ -1,5 +1,8 @@
 package com.board.api.common
 
+import com.fasterxml.jackson.databind.node.JsonNodeFactory
+import com.fasterxml.jackson.databind.node.ObjectNode
+
 
 class ApiResponse<T>(
     val success: Boolean,
@@ -10,8 +13,9 @@ class ApiResponse<T>(
             return ApiResponse(true, data)
         }
 
-        fun fail(message: String): ApiResponse<String> {
-            return ApiResponse(false, message)
+        fun fail(message: String): ApiResponse<ObjectNode> {
+            val data = ObjectNode(JsonNodeFactory.instance).put("cause", message)
+            return ApiResponse(false, data)
         }
     }
 }
