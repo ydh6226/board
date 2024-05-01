@@ -11,8 +11,11 @@ class CommentService(
     private val userService: UserService,
     private val postRepository: PostRepository,
     private val commentRepository: CommentRepository,
-    private val commentCustomRepository: CommentCustomRepository,
 ) {
+    fun getComment(postId: String): List<Comment> {
+        return commentRepository.findByPostId(postId)
+    }
+
     fun createComment(
         userId: String,
         postId: String,
@@ -36,7 +39,7 @@ class CommentService(
         val username = userService.getUsername(userId)
         val reply = Reply(content, userId, username)
 
-        commentCustomRepository.addReply(commentId, reply)
+        commentRepository.addReply(commentId, reply)
     }
 
     private fun isPostExists(postId: String): Boolean {

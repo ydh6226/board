@@ -1,15 +1,14 @@
 package com.board.core.common.domain
 
 import org.bson.types.ObjectId
-import org.springframework.data.annotation.Id
 import java.time.LocalDateTime
 
 abstract class EmbeddedDocument {
+    var id: String = ObjectId.get().toHexString()
+        private set
 
-    @Id
-    val id: String = ObjectId.get().toHexString()
-
-    val createdAt: LocalDateTime = LocalDateTime.now()
+    var createdAt: LocalDateTime = LocalDateTime.now()
+        private set
 
     var updatedAt: LocalDateTime = LocalDateTime.now()
 }

@@ -4,7 +4,7 @@ import com.board.core.comment.domain.Comment
 import org.junit.jupiter.api.Test
 import org.springframework.data.mapping.toDotPath
 
-class CommentCustomRepositoryTest {
+class CommentCustomRepositoryImplTest {
 
 
     @Test

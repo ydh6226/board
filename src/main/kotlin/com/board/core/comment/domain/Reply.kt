@@ -5,5 +5,6 @@ import com.board.core.common.domain.EmbeddedDocument
 data class Reply(
     val content: String,
     val userId: String,
-    val username: String
-) : EmbeddedDocument()
+    val username: String,
+) : EmbeddedDocument() {
+}

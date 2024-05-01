@@ -5,6 +5,7 @@ import com.board.api.dto.comment.AddReplyRequest
 import com.board.api.dto.comment.CreateCommentRequest
 import com.board.api.dto.comment.CreateCommentResponse
 import com.board.core.comment.CommentService
+import com.board.core.comment.domain.Comment
 import org.springframework.web.bind.annotation.*
 
 @RequestMapping("/api/v1/comments")
@@ -12,6 +13,11 @@ import org.springframework.web.bind.annotation.*
 class CommentController(
     private val commentService: CommentService,
 ) {
+
+    @GetMapping("/{postId}")
+    fun getComment(@PathVariable postId: String): ApiResponse<List<Comment>> {
+        return ApiResponse.success(commentService.getComment(postId))
+    }
 
     @PostMapping
     fun create(@RequestBody request: CreateCommentRequest): ApiResponse<CreateCommentResponse> {
