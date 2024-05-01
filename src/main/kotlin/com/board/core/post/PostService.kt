@@ -22,7 +22,7 @@ class PostService(
         title: String,
         content: String
     ): String {
-        val username = userService.getUser(userId).username
+        val username = userService.getUsername(userId)
         val post = Post(userId, username, title, content)
 
         postRepository.save(post)

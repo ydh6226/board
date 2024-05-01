@@ -20,7 +20,7 @@ class PostController(
         return ApiResponse.success(response)
     }
 
-    @PostMapping("/create")
+    @PostMapping
     fun createPost(@RequestBody request: CreatePostApiRequest): ApiResponse<CreatePostApiResponse> {
         val postId = postService.createPost(request.userId, request.title, request.content)
         val response = CreatePostApiResponse(postId)

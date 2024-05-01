@@ -1,6 +1,6 @@
 package com.board.core.post.domain
 
-import com.board.core.common.exception.BaseEntity
+import com.board.core.common.domain.BaseEntity
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document

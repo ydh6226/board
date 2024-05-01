@@ -23,4 +23,8 @@ class UserService(
     fun getUser(userId: String): User {
         return userRepository.findById(userId).orElseThrow { BadRequestException("사용자를 찾을 수 없습니다. userId: $userId") }
     }
+
+    fun getUsername(userId: String): String {
+        return getUser(userId).username
+    }
 }
