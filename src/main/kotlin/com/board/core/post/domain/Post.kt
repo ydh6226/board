@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document
 data class Post(
     val userId: String,
+    val username: String,
     var title: String,
     var content: String,
 ) : BaseEntity() {

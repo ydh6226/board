@@ -20,7 +20,7 @@ class UserService(
         userRepository.save(user)
     }
 
-    fun existsByUserId(userId: String): Boolean {
-        return userRepository.existsById(userId)
+    fun getUser(userId: String): User {
+        return userRepository.findById(userId).orElseThrow { BadRequestException("사용자를 찾을 수 없습니다. userId: $userId") }
     }
 }

@@ -22,9 +22,9 @@ class PostService(
         title: String,
         content: String
     ): String {
-        require(userService.existsByUserId(userId)) { "User not found. userId: $userId" }
+        val username = userService.getUser(userId).username
+        val post = Post(userId, username, title, content)
 
-        val post = Post(userId, title, content)
         postRepository.save(post)
         return post.id!!
     }
