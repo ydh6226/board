@@ -9,6 +9,7 @@ data class Post(
     val username: String,
     var title: String,
     var content: String,
+    val likeCount: Long = 0
 ) : BaseEntity() {
 
     init {

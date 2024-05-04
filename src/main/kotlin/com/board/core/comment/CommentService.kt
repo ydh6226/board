@@ -2,14 +2,14 @@ package com.board.core.comment
 
 import com.board.core.comment.domain.Comment
 import com.board.core.comment.domain.Reply
-import com.board.core.post.PostRepository
+import com.board.core.post.PostMongoRepository
 import com.board.core.user.UserService
 import org.springframework.stereotype.Service
 
 @Service
 class CommentService(
     private val userService: UserService,
-    private val postRepository: PostRepository,
+    private val postRepository: PostMongoRepository,
     private val commentRepository: CommentRepository,
 ) {
     fun getComment(postId: String): List<Comment> {
