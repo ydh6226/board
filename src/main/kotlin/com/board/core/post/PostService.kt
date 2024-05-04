@@ -5,7 +5,6 @@ import com.board.core.post.dto.PostDto
 import com.board.core.user.UserService
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
-import org.springframework.transaction.annotation.Transactional
 
 @Service
 class PostService(
@@ -33,7 +32,6 @@ class PostService(
     /**
      * @return updated like count
      */
-    @Transactional
     fun increaseLikeCount(postId: String, count: Int = DEFAULT_EMOTION_DIFF_COUNT): Long {
         val post = postRepository.increaseLikeCount(postId, count) ?: throw IllegalArgumentException("Post not found")
         return post.likeCount
